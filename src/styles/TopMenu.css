@@ -1,0 +1,70 @@
+/* Стили для верхнего меню */
+.top-menu {
+  display: flex; /* Используем flexbox для удобного выравнивания элементов */
+  justify-content: space-between; /* Размещаем элементы по краям */
+  align-items: center; /* Выравниваем элементы по вертикали */
+  background-color: #1f7f72; /* Темный фон */
+  padding: 10px 20px; /* Внутренние отступы */
+  color: white; /* Цвет текста */
+  font-family: Arial, sans-serif; /* Шрифт */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для меню */
+}
+
+/* Левая секция меню */
+.left-section {
+  display: flex; /* Используем flexbox */
+  align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+/* Кнопка скрытия боковой панели */
+.hide-sidebar-button {
+  background: none; /* Убираем фон */
+  border: none; /* Убираем границы */
+  color: white; /* Цвет иконки */
+  font-size: 24px; /* Размер иконки */
+  cursor: pointer; /* Изменяем курсор при наведении */
+  margin-right: 15px; /* Отступ справа */
+  margin-left: -15px;
+}
+
+/* Эффект при наведении на кнопку скрытия */
+.hide-sidebar-button:hover {
+  opacity: 0.8; /* Делаем кнопку полупрозрачной при наведении */
+}
+
+/* Надпись "Безопасность" */
+.safety-label {
+  font-size: 20px; /* Размер шрифта */
+  font-weight: bold; /* Жирное начертание */
+}
+
+/* Центральная секция меню */
+.center-section {
+  flex: 1; /* Растягиваем на всю доступную ширину */
+  display: flex; /* Используем flexbox */
+  justify-content: center; /* Центрируем содержимое */
+  margin: 0 20px; /* Отступы слева и справа */
+}
+
+/* Поле ввода для поиска */
+.search-input {
+  width: 100%; /* Занимает всю доступную ширину */
+  max-width: 500px; /* Ограничиваем максимальную ширину */
+  padding: 8px 15px; /* Внутренние отступы */
+  border: none; /* Убираем границы */
+  border-radius: 20px; /* Делаем закругленные углы */
+  font-size: 14px; /* Размер шрифта */
+  background-color: #f0f0f0; /* Светло-серый фон */
+  color: #333; /* Темно-серый текст */
+  outline: none; /* Убираем рамку при фокусе */
+}
+
+/* Стиль плейсхолдера в поле поиска */
+.search-input::placeholder {
+  color: #888; /* Цвет текста плейсхолдера */
+}
+
+/* Правая секция меню */
+.right-section {
+  /* Пока оставляем пустым, можно добавить иконки или кнопки */
+}

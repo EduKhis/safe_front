@@ -1,0 +1,189 @@
+.risk-form {
+  padding: 20px;                         /* Внутренний отступ блока */
+  background-color: #f9f9f9;             /* Цвет фона формы */
+  border-radius: 8px;                    /* Скругление углов */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень вокруг элемента */
+  width: 80%;
+}
+  
+.risk-form h2 {
+  margin-bottom: 20px;                   /* Внешний отступ снизу заголовка */
+}
+  
+.form-group {
+  margin-bottom: 15px; /* Уменьшенный отступ */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px; /* Уменьшенный отступ */
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px; /* Уменьшенный padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 12px; /* Уменьшенный размер шрифта */
+}
+
+.form-group textarea {
+  height: 80px; /* Уменьшенная высота текстовой области */
+  resize: vertical;
+}
+
+.form-group .radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-group .radio-group label {
+  flex: 1;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+}
+
+.form-group .radio-group input[type="radio"] {
+  display: none;
+}
+
+.form-group .radio-group input[type="radio"]:checked + label {
+  background-color: #407b87; /* Цвет верхней панели */
+  color: white;
+  border-color: #407b87; /* Цвет верхней панели */
+}
+
+.form-group .radio-group label + label {
+  margin-left: -1px;
+}
+
+.form-group .radio-group label:first-of-type {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-group .radio-group label:last-of-type {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-group .required {
+  color: red;
+  font-size: 11px; /* Уменьшенный размер текста */
+  margin-top: 4px; /* Уменьшенный отступ */
+}
+
+.form-group .photo-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px dashed #ccc;
+  padding: 8px; /* Уменьшенный padding */
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.form-group .photo-upload span {
+  color: #407b87;
+  font-weight: bold;
+  font-size: 12px; /* Уменьшенный размер шрифта */
+}
+  
+button {
+  margin-right: 10px;                    /* Отступ справа кнопки */
+  padding: 8px 16px;                     /* Внутренние отступы */
+  background-color: #407b87;             /* Синий фон кнопки */
+  color: white;                          /* Белый текст на кнопке */
+  border: none;                          /* Отсутствие рамки */
+  border-radius: 4px;                    /* Скруглённые углы кнопки */
+  cursor: pointer;                       /* Курсор в виде руки при наведении */
+}
+  
+button:hover {
+  background-color: #7dbfcc;             /* Изменение цвета фона при наведении */
+}
+
+.circle-group {
+  display: flex;
+  align-items: center;
+}
+
+.circle-group label.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.circle-group input[type="radio"] {
+  display: none;
+}
+
+.circle-group label.circle.no-selection {
+  background-color: #ccc;
+  position: relative;
+}
+
+.circle-group label.circle.no-selection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.circle-group label.circle.no-selection::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.circle-group input[type="radio"]:checked + label.circle {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.location-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.location-input input {
+  width: 100%;
+  padding-right: 40px; /* Отступ для иконки */
+}
+
+.location-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #007bff;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.location-icon:hover {
+  color: #0056b3;
+}

@@ -1,0 +1,51 @@
+.sidebar {
+  width: 250px; /* Полная ширина боковой панели в раскрытом состоянии */
+  background-color: white; /* Белый фон для sidebar */
+  color: #1f7f72; /* Цвет текста (зеленый) */
+  padding: 10px; /* Внутренний отступ для элементов внутри sidebar */
+  font-family: Arial, sans-serif; /* Используем шрифт Arial */
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Тень справа для визуального эффекта */
+  transition: width 0.3s ease; /* Плавное изменение ширины при сворачивании/разворачивании */
+  overflow: hidden; /* Обрезаем содержимое, если оно выходит за границы */
+}
+
+.sidebar.collapsed {
+  width: 43px; /* Уменьшенная ширина sidebar в свернутом состоянии */
+}
+
+.sidebar-section {
+  margin-bottom: 20px; /* Отступ между разделами меню */
+}
+
+.sidebar-header {
+  display: flex; /* Размещаем иконку и текст в одной строке */
+  align-items: center; /* Выравниваем элементы по вертикали */
+  font-size: 16px; /* Размер шрифта */
+  font-weight: bold; /* Делаем текст жирным */
+  cursor: pointer; /* Делаем заголовок кликабельным */
+  padding: 8px 10px; /* Внутренние отступы для удобства клика */
+  border-radius: 4px; /* Скругляем углы */
+  transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+}
+
+.sidebar-header:hover {
+  background-color: #ecf0f1; /* Меняем цвет фона при наведении */
+}
+
+.sidebar-icon {
+  font-size: 24px; /* Увеличенный размер иконок */
+  color: #1f7f72; /* Цвет иконок */
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center; /* Центрируем иконки, так как текст скрыт */
+  padding: 8px; /* Уменьшаем отступы для компактности */
+}
+
+.sidebar-header span {
+  margin-left: 10px; /* Отступ текста от иконки */
+}
+
+.sidebar.collapsed .sidebar-header span {
+  display: none; /* Полностью скрываем текст в свернутом состоянии */
+}

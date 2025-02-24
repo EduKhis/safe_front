@@ -1,0 +1,24 @@
+.app {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .menu {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+  }
+  
+  .menu div {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .menu div:hover {
+    background-color: #ddd;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
