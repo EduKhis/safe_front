@@ -20,6 +20,7 @@ const RiskForm = ({ onClose }) => {
   const [description, setDescription] = useState('');
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [point, setPoint] = useState('');
+  const [pointError, setPointError] = useState('');
 
   useEffect(() => {
       fetch(`${API_HOST}/api/getCategories?type=${type}`)
@@ -75,7 +76,30 @@ const RiskForm = ({ onClose }) => {
     );
   };
 
+  const validateCoordinates = (coordinates) => {
+    const regex = /^-?\d{1,2}\.\d{6},\s*-?\d{1,3}\.\d{6}$/;
+    return regex.test(coordinates);
+  };
+
+
+  const handlePointChange = (e) => {
+    const value = e.target.value;
+    setPoint(value);
+    if (!validateCoordinates(value)) {
+      setPointError('Некорректный формат координат. Ожидается формат: 41.315467, 69.240471');
+    } else {
+      setPointError('');
+    }
+  };
+
+
   const handleSubmit = async (e) => {
+
+    e.preventDefault();
+    if (!validateCoordinates(point)) {
+      setPointError('Некорректный формат координат. Ожидается формат: 41.315467, 69.240471');
+      return;
+    }
     e.preventDefault();
     const formData = new FormData();
     formData.append('type', type);
@@ -167,12 +191,13 @@ const RiskForm = ({ onClose }) => {
         <div className="form-group">
           <label>Координаты</label>
           <div className="location-input">
-            <input 
-              type="text" 
-              value={point} 
-              onChange={(e) => setPoint(e.target.value)} 
-              placeholder="Широта, Долгота" 
-            />
+          <input 
+            type="text" 
+            value={point} 
+            onChange={handlePointChange} 
+            placeholder="Широта, Долгота" 
+            style={{ borderColor: pointError ? 'red' : '#ccc' }}
+/>
             <FaMapMarkerAlt className="location-icon" onClick={handleGetLocation} />
           </div>
         </div>
