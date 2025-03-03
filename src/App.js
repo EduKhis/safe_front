@@ -47,9 +47,9 @@ function App() {
     }
 
     // Закрываем Sidebar на мобильных устройствах после выбора раздела
-    if (isMobile) {
+   // if (isMobile) {
       setCollapsed(true);
-    }
+   // }
   };
 
   const toggleSidebar = () => {
