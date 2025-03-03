@@ -2,11 +2,14 @@ import React from 'react';
 import '../styles/Content.css';
 
 const Content = ({ risks, onShowRiskForm }) => {
+  console.log(risks);
   return (
     <div className="content-grid"> {/* Изменили класс для грида */}
       {risks.map((risk, index) => (
+        
         <div key={index} className="card-grid"> {/* Изменили класс для карточки */}
           <div className="card-header-grid"> {/* Верхняя часть карточки */}
+            console.log(risk.photo)
             <img src={risk.photo} alt="risk" className="risk-photo" />
             <div className="risk-info">
               <span className="card-critical">{risk.criticaly}</span>
