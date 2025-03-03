@@ -1,48 +1,61 @@
-/* Основной контейнер контента */
-
-
-.content {
-  flex-grow: 1; /* Растягиваем контент на всю доступную высоту */
-  width: 100%; /* Заполняем доступную ширину */
-  overflow-y: auto; /* Разрешаем вертикальную прокрутку при необходимости */
-  padding: 20px;
-  background-color: #ecf0f1;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 60px); /* 100% высоты экрана минус хедер */
+/* Контейнер для сетки карточек */
+.content-grid {
+  display: grid; /* Отображаем элементы в виде сетки */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматически подстраиваем колонки */
+  gap: 20px; /* Отступ между карточками */
+  padding: 20px; /* Внутренние отступы */
+  background-color: #ecf0f1; /* Цвет фона контейнера */
 }
 
 /* Карточка */
-.card {
-  background-color: white; /* Белый фон */
-  padding: 15px; /* Внутренние отступы */
-  margin-bottom: 10px; /* Отступ между карточками */
-  border-radius: 5px; /* Закругленные углы */
+.card-grid {
+  background-color: white; /* Белый фон карточки */
+  padding: 15px; /* Внутренние отступы карточки */
+  border-radius: 10px; /* Закругленные углы карточки */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для эффекта поднятия */
+  display: flex; /* Гибкое расположение элементов */
+  flex-direction: column; /* Элементы располагаются в колонку */
+  align-items: center; /* Выравнивание элементов по центру */
+  text-align: center; /* Выравнивание текста по центру */
 }
 
-/* Заголовок карточки */
-.card-header {
-  display: flex; /* Используем flexbox */
-  justify-content: space-between; /* Размещаем элементы по краям */
+/* Верхняя часть карточки */
+.card-header-grid {
+  display: flex; /* Гибкое расположение элементов */
+  flex-direction: column; /* Элементы располагаются в колонку */
+  align-items: center; /* Выравнивание элементов по центру */
   margin-bottom: 10px; /* Отступ снизу */
+}
+
+.risk-photo {
+  width: 60px; /* Ширина изображения */
+  height: 60px; /* Высота изображения */
+  border-radius: 50%; /* Округление изображения */
+  object-fit: cover; /* Обрезка изображения, чтобы сохранить пропорции */
+}
+
+.risk-info {
+  display: flex; /* Гибкое расположение элементов */
+  flex-direction: column; /* Элементы располагаются в колонку */
+  align-items: center; /* Выравнивание элементов по центру */
   font-size: 0.9em; /* Размер шрифта */
-  color: #7f8c8d; /* Серый цвет текста */
+  color: #7f8c8d; /* Цвет текста */
+  margin-top: 5px; /* Отступ сверху */
 }
 
-/* Статус карточки */
-.card-status {
-  color: #27ae60; /* Зеленый цвет для статуса */
+/* Средняя часть карточки */
+.card-middle-grid {
+  display: flex; /* Гибкое расположение элементов */
+  flex-direction: column; /* Элементы располагаются в колонку */
+  align-items: center; /* Выравнивание элементов по центру */
+  font-size: 1em; /* Размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  color: #34495e; /* Цвет текста */
+  margin-bottom: 10px; /* Отступ снизу */
 }
 
-/* Заголовок внутри карточки */
-.card h3 {
-  margin-top: 0; /* Убираем верхний отступ */
-  color: #2c3e50; /* Темный цвет текста */
-}
-
-/* Обычный текст в карточке */
-.card p {
-  margin: 5px 0; /* Отступы сверху и снизу */
-  color: #34495e; /* Темно-серый цвет текста */
+/* Нижняя часть карточки */
+.card-description-grid {
+  font-size: 0.9em; /* Размер шрифта */
+  color: #2c3e50; /* Цвет текста */
 }
