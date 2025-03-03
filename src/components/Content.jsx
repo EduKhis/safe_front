@@ -8,6 +8,7 @@ const Content = ({ risks, onShowRiskForm }) => {
         <div key={index} className="card-grid"> {/* Изменили класс для карточки */}
           <div className="card-header-grid"> {/* Верхняя часть карточки */}
             <img src={`/images/${risk.photo}`} alt="risk" className="risk-photo" />
+            console.log(/images/${risk.photo});
             <div className="risk-info">
               <span className="card-critical">{risk.criticaly}</span>
               <span className="card-date">{risk.dateTimeFix}</span>
