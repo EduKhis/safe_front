@@ -5,15 +5,23 @@
   padding: 10px;
   font-family: Arial, sans-serif;
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
-  transition: width 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
   overflow: hidden;
+  position: fixed;
+  top: 80px; /* Отступ сверху, чтобы не перекрывать TopMenu */
+  left: 0;
+  bottom: 0;
+  z-index: 999; /* Убедимся, что Sidebar ниже TopMenu */
 }
 
 .sidebar.collapsed {
-  width: 0;
+  transform: translateX(-100%);
   opacity: 0;
   visibility: hidden;
-  padding: 0;
+}
+
+.sidebar.mobile {
+  width: 100%; /* На мобильных устройствах занимает всё окно */
 }
 
 .sidebar-section {

@@ -9,9 +9,9 @@ import {
 } from '@mui/icons-material';
 import '../styles/Sidebar.css';
 
-const Sidebar = ({ onSelect, collapsed }) => {
+const Sidebar = ({ onSelect, collapsed, isMobile }) => {
   return (
-    <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+    <div className={`sidebar ${collapsed ? 'collapsed' : ''} ${isMobile ? 'mobile' : ''}`}>
       <div className="sidebar-section">
         <div className="sidebar-header" onClick={() => onSelect('risks-ideas')}>
           <RisksIcon className="sidebar-icon" />

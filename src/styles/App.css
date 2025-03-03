@@ -13,4 +13,15 @@
   flex: 1;
   padding: 20px;
   background-color: #ecf0f1; /* Светлый фон */
+  transition: margin-left 0.3s ease; /* Плавный сдвиг контента */
+}
+
+.content.shifted {
+  margin-left: 250px; /* Сдвигаем контент, когда Sidebar открыт */
+}
+
+@media (max-width: 768px) {
+  .content.shifted {
+    margin-left: 0; /* На мобильных устройствах контент не сдвигается */
+  }
 }
