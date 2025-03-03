@@ -1,51 +1,45 @@
 .sidebar {
-  width: 250px; /* Полная ширина боковой панели в раскрытом состоянии */
-  background-color: white; /* Белый фон для sidebar */
-  color: #1f7f72; /* Цвет текста (зеленый) */
-  padding: 10px; /* Внутренний отступ для элементов внутри sidebar */
-  font-family: Arial, sans-serif; /* Используем шрифт Arial */
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Тень справа для визуального эффекта */
-  transition: width 0.3s ease; /* Плавное изменение ширины при сворачивании/разворачивании */
-  overflow: hidden; /* Обрезаем содержимое, если оно выходит за границы */
+  width: 250px;
+  background-color: white;
+  color: #1f7f72;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  overflow: hidden;
 }
 
 .sidebar.collapsed {
-  width: 43px; /* Уменьшенная ширина sidebar в свернутом состоянии */
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0;
 }
 
 .sidebar-section {
-  margin-bottom: 20px; /* Отступ между разделами меню */
+  margin-bottom: 20px;
 }
 
 .sidebar-header {
-  display: flex; /* Размещаем иконку и текст в одной строке */
-  align-items: center; /* Выравниваем элементы по вертикали */
-  font-size: 16px; /* Размер шрифта */
-  font-weight: bold; /* Делаем текст жирным */
-  cursor: pointer; /* Делаем заголовок кликабельным */
-  padding: 8px 10px; /* Внутренние отступы для удобства клика */
-  border-radius: 4px; /* Скругляем углы */
-  transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .sidebar-header:hover {
-  background-color: #ecf0f1; /* Меняем цвет фона при наведении */
+  background-color: #ecf0f1;
 }
 
 .sidebar-icon {
-  font-size: 24px; /* Увеличенный размер иконок */
-  color: #1f7f72; /* Цвет иконок */
-}
-
-.sidebar.collapsed .sidebar-header {
-  justify-content: center; /* Центрируем иконки, так как текст скрыт */
-  padding: 8px; /* Уменьшаем отступы для компактности */
+  font-size: 24px;
+  color: #1f7f72;
 }
 
 .sidebar-header span {
-  margin-left: 10px; /* Отступ текста от иконки */
-}
-
-.sidebar.collapsed .sidebar-header span {
-  display: none; /* Полностью скрываем текст в свернутом состоянии */
+  margin-left: 10px;
 }
