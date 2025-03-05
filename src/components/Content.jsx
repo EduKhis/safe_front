@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Content.css';
 
-const Content = ({ risks, onShowRiskForm }) => {
+const Content = ({ risks }) => {
+  const navigate = useNavigate();
+
   if (!risks || !Array.isArray(risks)) {
     return <div>Нет данных</div>;
   }
@@ -12,7 +15,7 @@ const Content = ({ risks, onShowRiskForm }) => {
         <div
           key={index}
           className="card-grid"
-          onClick={() => onShowRiskForm(risk.id)} // Делаем карточку кликабельной
+          onClick={() => navigate(`/risks/${risk.id}`)} // Переход на страницу риска
         >
           <div className="card-header-grid">
             <img src={risk.photo} alt="risk" className="risk-photo" />
