@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Content.css';
 
 const Content = ({ risks, onShowRiskForm }) => {
+  console.log(risks);
   return (
     <div className="content-grid"> {/* Изменили класс для грида */}
       {risks.map((risk, index) => (

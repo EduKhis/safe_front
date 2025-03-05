@@ -35,28 +35,28 @@ const MapComponent = () => {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
-                preset: risk.type === 'RISK' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
+                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#ff0318'
               });
             } else if (risk.criticality === 'YELLOW') {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
-                preset: risk.type === 'RISK' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
+                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#fdf903'
               });
             } else if (risk.criticality === 'ORANGE') {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
-                preset: risk.type === 'RISK' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
+                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#f89604'
               });
             } else {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
-                preset: risk.type === 'RISK' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
+                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#3b3b3a'
               });
             }
@@ -78,7 +78,7 @@ const MapComponent = () => {
     function createBalloon(risk) {
       return `
         <div class="balloon-content">
-          <img src="/images/${risk.photo}" alt="Image">
+          <img src="${risk.photo}" alt="Image">
           <div class="balloon-info">
             <p><strong>${risk.type} ${risk.id}</strong> - ${risk.status}</p>
             <p>${risk.location}</p>

@@ -197,7 +197,7 @@ const RiskForm = ({ onClose }) => {
             type="text" 
             value={point} 
             onChange={handlePointChange} 
-            placeholder="Широта, Долгота" 
+            placeholder="55.709608, 37.544670" 
             style={{ borderColor: pointError ? 'red' : '#ccc' }}
 />
             <FaMapMarkerAlt className="location-icon" onClick={handleGetLocation} />
