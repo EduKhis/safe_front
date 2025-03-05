@@ -10,7 +10,7 @@ const Content = ({ risks, onShowRiskForm }) => {
           <div className="card-header-grid">
             <img src={risk.photo} alt="risk" className="risk-photo" />
             <div className="risk-info">
-              <span className={`card-critical ${risk.criticality.toLowerCase()}`}></span>
+              <span className={`card-critical ${risk.criticaly.toLowerCase()}`}></span>
               <span className="card-number"><strong>{risk.type} {risk.id}</strong> - {risk.status}</span>
               <span className="card-date">{risk.dateTimeFix}</span>
             </div>
