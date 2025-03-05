@@ -2,16 +2,23 @@ import React from 'react';
 import '../styles/Content.css';
 
 const Content = ({ risks, onShowRiskForm }) => {
-  console.log(risks);
+  if (!risks || !Array.isArray(risks)) {
+    return <div>Нет данных</div>;
+  }
+
   return (
     <div className="content-grid">
       {risks.map((risk, index) => (
-        <div key={index} className="card-grid" onClick={() => onShowRiskForm(risk)}>
+        <div
+          key={index}
+          className="card-grid"
+          onClick={() => onShowRiskForm(risk.id)} // Делаем карточку кликабельной
+        >
           <div className="card-header-grid">
             <img src={risk.photo} alt="risk" className="risk-photo" />
             <div className="risk-info">
-              <span className={`card-critical ${risk.criticaly.toLowerCase()}`}></span>
-              <span className="card-number"><strong>{risk.type} {risk.id}</strong> - {risk.status}</span>
+              <span className={`card-critical ${risk.criticaly?.toLowerCase() || 'gray'}`}></span>
+              <span className="card-number">{risk.type} {risk.id}</span>
               <span className="card-date">{risk.dateTimeFix}</span>
             </div>
           </div>
@@ -21,7 +28,7 @@ const Content = ({ risks, onShowRiskForm }) => {
             <span className="card-section">{risk.section}</span>
           </div>
           <div className="card-description-grid">
-            <p className="description-text">{risk.description}</p>
+            <p>{risk.description}</p>
           </div>
         </div>
       ))}

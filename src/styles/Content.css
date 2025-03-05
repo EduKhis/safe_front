@@ -1,74 +1,87 @@
-/* Контейнер для сетки карточек */
+/* Контейнер для карточек */
 .content-grid {
-  display: grid; /* Отображаем элементы в виде сетки */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматически подстраиваем колонки */
-  gap: 20px; /* Отступ между карточками */
-  padding: 20px; /* Внутренние отступы */
-  background-color: #ecf0f1; /* Цвет фона контейнера */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #ecf0f1;
 }
 
 /* Карточка */
 .card-grid {
-  background-color: white; /* Белый фон карточки */
-  padding: 15px; /* Внутренние отступы карточки */
-  border-radius: 10px; /* Закругленные углы карточки */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для эффекта поднятия */
-  display: flex; /* Гибкое расположение элементов */
-  flex-direction: column; /* Элементы располагаются в колонку */
-  align-items: center; /* Выравнивание элементов по центру */
-  text-align: center; /* Выравнивание текста по центру */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: left;
+}
+
+.card-grid:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Верхняя часть карточки */
 .card-header-grid {
-  display: flex; /* Гибкое расположение элементов */
-  flex-direction: column; /* Элементы располагаются в колонку */
-  align-items: center; /* Выравнивание элементов по центру */
-  margin-bottom: 10px; /* Отступ снизу */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .risk-photo {
-  width: 60px; /* Ширина изображения */
-  height: 60px; /* Высота изображения */
-  border-radius: 50%; /* Округление изображения */
-  object-fit: cover; /* Обрезка изображения, чтобы сохранить пропорции */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .risk-info {
-  display: flex; /* Гибкое расположение элементов */
-  flex-direction: column; /* Элементы располагаются в колонку */
-  align-items: center; /* Выравнивание элементов по центру */
-  font-size: 0.9em; /* Размер шрифта */
-  color: #7f8c8d; /* Цвет текста */
-  margin-top: 5px; /* Отступ сверху */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-/* Средняя часть карточки */
-.card-middle-grid {
-  display: flex; /* Гибкое расположение элементов */
-  flex-direction: column; /* Элементы располагаются в колонку */
-  align-items: center; /* Выравнивание элементов по центру */
-  font-size: 1em; /* Размер шрифта */
-  font-weight: bold; /* Жирный шрифт */
-  color: #34495e; /* Цвет текста */
-  margin-bottom: 10px; /* Отступ снизу */
-}
-
-/* Нижняя часть карточки */
-.card-description-grid {
-  font-size: 0.9em; /* Размер шрифта */
-  color: #2c3e50; /* Цвет текста */
-}
+/* Цветной индикатор критичности */
 .card-critical {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
   display: inline-block;
-  border-radius: 2px;
-  margin-right: 8px;
 }
 
+/* Разные цвета критичности */
 .card-critical.green { background-color: #14f304; }
 .card-critical.red { background-color: #ff0318; }
 .card-critical.yellow { background-color: #fdf903; }
 .card-critical.orange { background-color: #f89604; }
 .card-critical.gray { background-color: #3b3b3a; }
+
+/* ID риска */
+.card-number {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+/* Дата */
+.card-date {
+  font-size: 0.85em;
+  color: #7f8c8d;
+}
+
+/* Средняя часть карточки */
+.card-middle-grid {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #34495e;
+}
+
+/* Описание риска */
+.card-description-grid {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #2c3e50;
+}
