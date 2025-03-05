@@ -47,7 +47,7 @@
 .card-critical-wrapper {
   display: flex;
   align-items: center;
-  gap: 8px; /* Отступ между квадратом и номером */
+  gap: 4px; /* Отступ между квадратом и номером */
 }
 
 .card-category {
@@ -66,11 +66,11 @@
 
 
 /* Разные цвета критичности */
-.card-critical.green { background-color: #14f304; }
-.card-critical.red { background-color: #ff0318; }
-.card-critical.yellow { background-color: #fdf903; }
-.card-critical.orange { background-color: #f89604; }
-.card-critical.gray { background-color: #3b3b3a; }
+.card-critical.green { background-color: #11a206; }
+.card-critical.red { background-color: #b10615; }
+.card-critical.yellow { background-color: #e8e505; }
+.card-critical.orange { background-color: #e18a07; }
+.card-critical.none { background-color: #3b3b3a; }
 
 /* ID риска */
 .card-number {
