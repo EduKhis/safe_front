@@ -52,14 +52,7 @@ const MapComponent = () => {
                 preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#f89604'
               });
-            } else {
-              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
-                balloonContent: createBalloon(risk)
-              }, {
-                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
-                iconColor: '#3b3b3a'
-              });
-            }
+            } 
 
             map.geoObjects.add(placemark);
             geoObjects.push(placemark);
