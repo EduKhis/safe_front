@@ -40,16 +40,30 @@
 .risk-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: flex-start;
+  gap: 5px;
 }
 
-/* Цветной индикатор критичности */
-.card-critical {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
+.card-critical-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Отступ между квадратом и номером */
 }
+
+.card-category {
+  font-size: 1.2em; /* Увеличенный шрифт */
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.card-critical {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  border-radius: 2px; /* Квадрат с небольшим скруглением */
+  margin-right: 8px; /* Отступ справа */
+}
+
 
 /* Разные цвета критичности */
 .card-critical.green { background-color: #14f304; }
