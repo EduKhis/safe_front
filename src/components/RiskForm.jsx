@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { FaMapMarkerAlt } from 'react-icons/fa'; // Импортируем иконку
+import { v4 as uuidv4 } from 'uuid'; // Импортируем uuid
 import '../styles/RiskForm.css';
 
 const API_HOST = process.env.REACT_APP_API_HOST; // Вынесенный хост
@@ -113,7 +114,8 @@ const RiskForm = ({ onClose }) => {
     formData.append('point', point);
 
     files.forEach((file) => {
-      formData.append('files', file);
+      const uniqueFileName = `${uuidv4()}-${file.name}`;
+      formData.append('files', file, uniqueFileName);
     });
 
     try {
