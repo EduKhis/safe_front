@@ -24,8 +24,8 @@ const Content = ({ risks, onShowRiskForm }) => {
           </div>
           <div className="card-middle-grid">
             <span className="card-category">{risk.category}</span>
-            <span className="card-sector">{risk.sector}</span>
-            <span className="card-section">{risk.section}</span>
+            <span className="card-category">{risk.category}</span>
+            <span className="card-sector-section">{risk.sector}. {risk.section}</span>
           </div>
           <div className="card-description-grid">
             <p>{risk.description}</p>

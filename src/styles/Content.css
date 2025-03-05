@@ -79,6 +79,15 @@
   color: #34495e;
 }
 
+.card-middle-grid span {
+  display: block;
+}
+
+.card-sector-section {
+  font-weight: normal;
+  color: #7f8c8d;
+}
+
 /* Описание риска */
 .card-description-grid {
   margin-top: 10px;
