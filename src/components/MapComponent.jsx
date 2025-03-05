@@ -24,35 +24,42 @@ const MapComponent = () => {
             let placemark;
             console.log(risk)
 
-            if (risk.criticality === 'GREEN') {
+            if (risk.criticaly === 'GREEN') {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
                 preset: risk.type === 'RISK' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#14f304'
               });
-            } else if (risk.criticality === 'RED') {
+            } else if (risk.criticaly === 'RED') {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
                 preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#ff0318'
               });
-            } else if (risk.criticality === 'YELLOW') {
+            } else if (risk.criticaly === 'YELLOW') {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
                 preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#fdf903'
               });
-            } else if (risk.criticality === 'ORANGE') {
+            } else if (risk.criticaly === 'ORANGE') {
               placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
                 balloonContent: createBalloon(risk)
               }, {
                 preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
                 iconColor: '#f89604'
               });
-            } 
+            } else {
+              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
+                balloonContent: createBalloon(risk)
+              }, {
+                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
+                iconColor: '#3b3b3a'
+              });
+            }
 
             map.geoObjects.add(placemark);
             geoObjects.push(placemark);
