@@ -20,7 +20,6 @@ const SectionHeader = ({ selectedSection, onShowRiskForm }) => {
       
       {selectedSection === 'map' && (
         <button className="refresh-button" 
-       // onClick={ () => window.location.reload()}
         >Обновить карту</button>
       )}
     </div>

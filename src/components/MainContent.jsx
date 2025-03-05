@@ -2,12 +2,14 @@ import React from 'react';
 import Content from './Content';
 import MapComponent from './MapComponent';
 import RiskForm from './RiskForm';
+import SectionHeader from './SectionHeader'; // Импортируем SectionHeader
 import '../styles/MainContent.css';
 
 
 const MainContent = ({ selectedSection, risks, showRiskForm, setShowRiskForm }) => {
   return (
     <div className="main-content-area">
+            <SectionHeader selectedSection={selectedSection} onShowRiskForm={() => setShowRiskForm(true)} /> {/* Передаем setShowRiskForm */}
       {selectedSection === 'risks-ideas' && (
         showRiskForm ? (
           <RiskForm onClose={() => setShowRiskForm(false)} />

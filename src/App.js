@@ -5,6 +5,7 @@ import TopMenu from './components/TopMenu';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import RiskDetail from './components/RiskDetail'; // Импортируем новый компонент
+import RiskForm from './components/RiskForm'; // Импортируем RiskForm
 import './styles/App.css';
 
 const API_HOST = process.env.REACT_APP_API_HOST;
@@ -71,6 +72,7 @@ function App() {
                 }
               />
               <Route path="/risks/:riskId" element={<RiskDetail />} /> {/* Маршрут для страницы риска */}
+              <Route path="/risks/new" element={<RiskForm onClose={() => setShowRiskForm(false)} />} /> {/* Маршрут для формы добавления риска */}
             </Routes>
           </div>
         </div>
