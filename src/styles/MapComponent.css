@@ -4,3 +4,38 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+/* Стили для изображения в балуне */
+.balloon-content img.balloon-image {
+  width: 150px; /* Уменьшите ширину изображения */
+  height: auto; /* Сохраняем пропорции */
+  border-radius: 8px; /* Добавляем скругленные углы */
+  margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стили для контента балуна */
+.balloon-content {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.balloon-info {
+  margin-top: 10px;
+}
+
+.balloon-info p {
+  margin: 5px 0;
+}
+
+.balloon-info button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.balloon-info button:hover {
+  background-color: #0056b3;
+}  

@@ -78,7 +78,7 @@ const MapComponent = () => {
     function createBalloon(risk) {
       return `
         <div class="balloon-content">
-          <img src="${risk.photo}" alt="Image">
+          <img src="${risk.photo}" alt="Image" class="balloon-image" />
           <div class="balloon-info">
             <p><strong>${risk.type} ${risk.id}</strong> - ${risk.status}</p>
             <p>${risk.location}</p>
