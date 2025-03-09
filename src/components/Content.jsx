@@ -15,7 +15,7 @@ const Content = ({ risks }) => {
         <div
           key={index}
           className="card-grid"
-          onClick={() => navigate(`/risks/${risk.id}`)} // Переход на страницу риска
+          onClick={() => navigate(`/risks/${risk.id}`)}
         >
           <div className="card-header-grid">
             <img src={risk.photo} alt="risk" className="risk-photo" />
@@ -27,7 +27,6 @@ const Content = ({ risks }) => {
               <span className="card-date">{risk.dateTimeFix}</span>
             </div>
           </div>
-
           <div className="card-middle-grid">
             <span className="card-category">{risk.category}</span>
             <span className="card-sector-section">{risk.sector}. {risk.section}</span>

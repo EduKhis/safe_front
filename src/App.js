@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom'; // Убираем BrowserRouter
 import axios from 'axios';
 import TopMenu from './components/TopMenu';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
-import RiskDetail from './components/RiskDetail'; // Импортируем новый компонент
-import RiskForm from './components/RiskForm'; // Импортируем RiskForm
+import RiskDetail from './components/RiskDetail';
+//import RiskForm from './components/RiskForm';
 import './styles/App.css';
 
 const API_HOST = process.env.REACT_APP_API_HOST;
@@ -16,6 +16,7 @@ function App() {
   const [showRiskForm, setShowRiskForm] = useState(false);
   const [collapsed, setCollapsed] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,6 +33,12 @@ function App() {
         .catch(error => console.error(error));
     }
   }, [selectedSection]);
+
+  useEffect(() => {
+    if (location.pathname.startsWith('/risks/')) {
+      setSelectedSection('risk-detail');
+    }
+  }, [location.pathname]);
 
   const handleSidebarSelect = (selectedItem) => {
     setSelectedSection(selectedItem);
@@ -51,33 +58,31 @@ function App() {
     setCollapsed(!collapsed);
   };
 
-
   return (
-    <Router>
-      <div className="app">
-        <TopMenu onToggleSidebar={toggleSidebar} />
-        <div className="main-container">
-          <Sidebar onSelect={handleSidebarSelect} collapsed={collapsed} isMobile={isMobile} />
-          <div className={`main-content ${collapsed ? '' : 'shifted'}`}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <MainContent
-                    selectedSection={selectedSection}
-                    risks={risks}
-                    showRiskForm={showRiskForm}
-                    setShowRiskForm={setShowRiskForm}
-                  />
-                }
-              />
-              <Route path="/risks/:riskId" element={<RiskDetail />} /> {/* Маршрут для страницы риска */}
-              <Route path="/risks/new" element={<RiskForm onClose={() => setShowRiskForm(false)} />} /> {/* Маршрут для формы добавления риска */}
-            </Routes>
-          </div>
+    <div className="app">
+      <TopMenu onToggleSidebar={toggleSidebar} />
+      <div className="main-container">
+        <Sidebar onSelect={handleSidebarSelect} collapsed={collapsed} isMobile={isMobile} />
+        <div className={`main-content ${collapsed ? '' : 'shifted'}`}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <MainContent
+                  selectedSection={selectedSection}
+                  risks={risks}
+                  showRiskForm={showRiskForm}
+                  setShowRiskForm={setShowRiskForm}
+                />
+              }
+            />
+            <Route path="/risks/:riskId" element={<RiskDetail />} />
+           
+            {/* <Route path="/risks/new" element={<RiskForm onClose={() => setShowRiskForm(false)} />} /> */}
+          </Routes>
         </div>
       </div>
-    </Router>
+    </div>
   );
 }
 
