@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom'; // Убираем BrowserRouter
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import TopMenu from './components/TopMenu';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import RiskDetail from './components/RiskDetail';
-//import RiskForm from './components/RiskForm';
+import Login from './components/Login';
+import Register from './components/Register';
 import './styles/App.css';
 
 const API_HOST = process.env.REACT_APP_API_HOST;
+
+// Компонент для защиты маршрутов
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+  return children;
+};
 
 function App() {
   const [risks, setRisks] = useState([]);
@@ -65,20 +75,32 @@ function App() {
         <Sidebar onSelect={handleSidebarSelect} collapsed={collapsed} isMobile={isMobile} />
         <div className={`main-content ${collapsed ? '' : 'shifted'}`}>
           <Routes>
+            {/* Маршруты для авторизации и регистрации */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
+            {/* Защищенные маршруты */}
             <Route
               path="/"
               element={
-                <MainContent
-                  selectedSection={selectedSection}
-                  risks={risks}
-                  showRiskForm={showRiskForm}
-                  setShowRiskForm={setShowRiskForm}
-                />
+                <ProtectedRoute>
+                  <MainContent
+                    selectedSection={selectedSection}
+                    risks={risks}
+                    showRiskForm={showRiskForm}
+                    setShowRiskForm={setShowRiskForm}
+                  />
+                </ProtectedRoute>
               }
             />
-            <Route path="/risks/:riskId" element={<RiskDetail />} />
-           
-            {/* <Route path="/risks/new" element={<RiskForm onClose={() => setShowRiskForm(false)} />} /> */}
+            <Route
+              path="/risks/:riskId"
+              element={
+                <ProtectedRoute>
+                  <RiskDetail />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </div>

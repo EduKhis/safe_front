@@ -1,9 +1,16 @@
 import React from 'react';
-import '../styles/TopMenu.css'; // Правильный путь к файлу стилей
-
-
+import { useNavigate } from 'react-router-dom';
+import '../styles/TopMenu.css';
 
 const TopMenu = ({ onToggleSidebar }) => {
+  const navigate = useNavigate();
+
+  // Функция для выхода из учетной записи
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Удаляем токен
+    navigate('/login'); // Перенаправляем на страницу входа
+  };
+
   return (
     <div className="top-menu">
       <div className="left-section">
@@ -16,7 +23,10 @@ const TopMenu = ({ onToggleSidebar }) => {
         <input type="text" placeholder="Поиск..." className="search-input" />
       </div>
       <div className="right-section">
-        {/* Здесь можно добавить другие элементы, например, иконки или кнопки */}
+        {/* Кнопка выхода */}
+        <button className="logout-button" onClick={handleLogout}>
+          Выйти
+        </button>
       </div>
     </div>
   );

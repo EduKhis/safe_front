@@ -17,8 +17,18 @@ const MapComponent = () => {
       const geoObjects = [];
 
       // Запрос маркеров с сервера
-      fetch(`${API_HOST}/map/points`)
-        .then(response => response.json())
+      fetch(`${API_HOST}/map/points`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`, // Добавляем токен в заголовок
+        },
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Ошибка при загрузке данных');
+          }
+          return response.json();
+        })
         .then(data => {
           data.forEach(risk => {
             let placemark;

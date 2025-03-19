@@ -66,5 +66,23 @@
 
 /* Правая секция меню */
 .right-section {
-  /* Пока оставляем пустым, можно добавить иконки или кнопки */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Стили для кнопки выхода */
+.logout-button {
+  padding: 5px 10px;
+  background-color: #1f7f72; /* Основной цвет кнопки */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease; /* Плавный переход */
+}
+
+.logout-button:hover {
+  background-color: #58978f; /* Цвет при наведении */
 }
