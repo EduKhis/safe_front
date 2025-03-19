@@ -64,13 +64,22 @@
   margin-right: 8px; /* Отступ справа */
 }
 
-
 /* Разные цвета критичности */
-.card-critical.green { background-color: #11a206; }
-.card-critical.red { background-color: #b10615; }
-.card-critical.yellow { background-color: #e8e505; }
-.card-critical.orange { background-color: #e18a07; }
-.card-critical.none { background-color: #3b3b3a; }
+.card-critical.green {
+  background-color: #11a206;
+}
+.card-critical.red {
+  background-color: #b10615;
+}
+.card-critical.yellow {
+  background-color: #e8e505;
+}
+.card-critical.orange {
+  background-color: #e18a07;
+}
+.card-critical.none {
+  background-color: #3b3b3a;
+}
 
 /* ID риска */
 .card-number {

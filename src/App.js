@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
-import axios from 'axios';
+
 import TopMenu from './components/TopMenu';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import RiskDetail from './components/RiskDetail';
 import Login from './components/Login';
 import Register from './components/Register';
+import api from './api'; // Импортируем настроенный axios
 import './styles/App.css';
 
 const API_HOST = process.env.REACT_APP_API_HOST;
@@ -38,9 +39,10 @@ function App() {
 
   useEffect(() => {
     if (selectedSection === 'risks-ideas') {
-      axios.get(`${API_HOST}/api/risks`)
-        .then(response => setRisks(response.data))
-        .catch(error => console.error(error));
+      api
+        .get(`${API_HOST}/api/risks`)
+        .then((response) => setRisks(response.data))
+        .catch((error) => console.error(error));
     }
   }, [selectedSection]);
 
@@ -55,9 +57,10 @@ function App() {
     setShowRiskForm(false);
 
     if (selectedItem === 'risks-ideas') {
-      axios.get(`${API_HOST}/api/risks`)
-        .then(response => setRisks(response.data))
-        .catch(error => console.error(error));
+      api
+        .get(`${API_HOST}/api/risks`)
+        .then((response) => setRisks(response.data))
+        .catch((error) => console.error(error));
     } else {
       setRisks([]);
     }
@@ -72,7 +75,11 @@ function App() {
     <div className="app">
       <TopMenu onToggleSidebar={toggleSidebar} />
       <div className="main-container">
-        <Sidebar onSelect={handleSidebarSelect} collapsed={collapsed} isMobile={isMobile} />
+        <Sidebar
+          onSelect={handleSidebarSelect}
+          collapsed={collapsed}
+          isMobile={isMobile}
+        />
         <div className={`main-content ${collapsed ? '' : 'shifted'}`}>
           <Routes>
             {/* Маршруты для авторизации и регистрации */}

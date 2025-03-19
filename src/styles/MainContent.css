@@ -8,18 +8,17 @@
 }
 
 .main-content-area {
-    flex-grow: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Чтобы контент начинался сверху */
-    overflow-y: auto; /* Добавляем прокрутку, если контент выходит за границы */
-    
-  }
-  
-  .main-content-area > div {
-    width: 100%;
-    max-width: 1200px; /* Ограничиваем ширину контента */
-    height: auto; /* Позволяем контенту растягиваться по высоте */
-    min-height: 100%;
-  }
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Чтобы контент начинался сверху */
+  overflow-y: auto; /* Добавляем прокрутку, если контент выходит за границы */
+}
+
+.main-content-area > div {
+  width: 100%;
+  max-width: 1200px; /* Ограничиваем ширину контента */
+  height: auto; /* Позволяем контенту растягиваться по высоте */
+  min-height: 100%;
+}

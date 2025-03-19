@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Login.css';
 
+const API_HOST = process.env.REACT_APP_API_HOST;
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/signin', {
+      const response = await axios.post(`${API_HOST}/api/auth/signin`, {
         username,
         password,
       });
@@ -47,6 +48,9 @@ const Login = () => {
           />
         </div>
         <button type="submit">Login</button>
+        <p className="register-link">
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </form>
     </div>
   );

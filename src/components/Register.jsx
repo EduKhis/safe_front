@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Register.css';
+
+const API_HOST = process.env.REACT_APP_API_HOST;
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -13,7 +15,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/api/auth/signup', {
+      await axios.post(`${API_HOST}/api/auth/signup`, {
         username,
         email,
         password,
@@ -57,6 +59,9 @@ const Register = () => {
           />
         </div>
         <button type="submit">Register</button>
+        <p className="login-link">
+          Already have an account? <Link to="/login">Login here</Link>
+        </p>
       </form>
     </div>
   );

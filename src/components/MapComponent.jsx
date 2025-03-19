@@ -9,66 +9,101 @@ const MapComponent = () => {
     ymaps.ready(init);
 
     function init() {
-      const map = new ymaps.Map("myMap", {
+      const map = new ymaps.Map('myMap', {
         center: [55.751244, 37.618423],
-        zoom: 10
+        zoom: 10,
       });
 
       const geoObjects = [];
-
+      console.log(`Bearer ${localStorage.getItem('token')}`);
       // Запрос маркеров с сервера
       fetch(`${API_HOST}/map/points`, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`, // Добавляем токен в заголовок
+          'x-access-token': `Bearer ${localStorage.getItem('token')}`, // Добавляем токен в заголовок
         },
       })
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
             throw new Error('Ошибка при загрузке данных');
           }
           return response.json();
         })
-        .then(data => {
-          data.forEach(risk => {
+        .then((data) => {
+          data.forEach((risk) => {
             let placemark;
-            console.log(risk)
+            console.log(risk);
 
             if (risk.criticaly === 'GREEN') {
-              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
-                balloonContent: createBalloon(risk)
-              }, {
-                preset: risk.type === 'RISK' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
-                iconColor: '#14f304'
-              });
+              placemark = new ymaps.Placemark(
+                [risk.latitude, risk.longitude],
+                {
+                  balloonContent: createBalloon(risk),
+                },
+                {
+                  preset:
+                    risk.type === 'RISK'
+                      ? 'islands#blueAttentionIcon'
+                      : 'islands#blueInfoIcon',
+                  iconColor: '#14f304',
+                }
+              );
             } else if (risk.criticaly === 'RED') {
-              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
-                balloonContent: createBalloon(risk)
-              }, {
-                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
-                iconColor: '#ff0318'
-              });
+              placemark = new ymaps.Placemark(
+                [risk.latitude, risk.longitude],
+                {
+                  balloonContent: createBalloon(risk),
+                },
+                {
+                  preset:
+                    risk.type === 'Риск'
+                      ? 'islands#blueAttentionIcon'
+                      : 'islands#blueInfoIcon',
+                  iconColor: '#ff0318',
+                }
+              );
             } else if (risk.criticaly === 'YELLOW') {
-              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
-                balloonContent: createBalloon(risk)
-              }, {
-                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
-                iconColor: '#fdf903'
-              });
+              placemark = new ymaps.Placemark(
+                [risk.latitude, risk.longitude],
+                {
+                  balloonContent: createBalloon(risk),
+                },
+                {
+                  preset:
+                    risk.type === 'Риск'
+                      ? 'islands#blueAttentionIcon'
+                      : 'islands#blueInfoIcon',
+                  iconColor: '#fdf903',
+                }
+              );
             } else if (risk.criticaly === 'ORANGE') {
-              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
-                balloonContent: createBalloon(risk)
-              }, {
-                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
-                iconColor: '#f89604'
-              });
+              placemark = new ymaps.Placemark(
+                [risk.latitude, risk.longitude],
+                {
+                  balloonContent: createBalloon(risk),
+                },
+                {
+                  preset:
+                    risk.type === 'Риск'
+                      ? 'islands#blueAttentionIcon'
+                      : 'islands#blueInfoIcon',
+                  iconColor: '#f89604',
+                }
+              );
             } else {
-              placemark = new ymaps.Placemark([risk.latitude, risk.longitude], {
-                balloonContent: createBalloon(risk)
-              }, {
-                preset: risk.type === 'Риск' ? 'islands#blueAttentionIcon' : 'islands#blueInfoIcon',
-                iconColor: '#3b3b3a'
-              });
+              placemark = new ymaps.Placemark(
+                [risk.latitude, risk.longitude],
+                {
+                  balloonContent: createBalloon(risk),
+                },
+                {
+                  preset:
+                    risk.type === 'Риск'
+                      ? 'islands#blueAttentionIcon'
+                      : 'islands#blueInfoIcon',
+                  iconColor: '#3b3b3a',
+                }
+              );
             }
 
             map.geoObjects.add(placemark);
@@ -80,7 +115,7 @@ const MapComponent = () => {
             map.setBounds(bounds, { checkZoomRange: true });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('Error fetching map points:', error);
         });
     }
