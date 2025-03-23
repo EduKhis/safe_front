@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaSignOutAlt, FaUserEdit } from 'react-icons/fa';
 import '../styles/TopMenu.css';
 
 const TopMenu = ({ onToggleSidebar }) => {
@@ -9,6 +10,11 @@ const TopMenu = ({ onToggleSidebar }) => {
   const handleLogout = () => {
     localStorage.removeItem('token'); // Удаляем токен
     navigate('/login'); // Перенаправляем на страницу входа
+  };
+
+  // Функция для перехода на страницу пользователя
+  const handleUserProfile = () => {
+    navigate('/profile'); // Перенаправляем на страницу профиля
   };
 
   return (
@@ -23,9 +29,13 @@ const TopMenu = ({ onToggleSidebar }) => {
         <input type="text" placeholder="Поиск..." className="search-input" />
       </div>
       <div className="right-section">
-        {/* Кнопка выхода */}
-        <button className="logout-button" onClick={handleLogout}>
-          Выйти
+        {/* Иконка для перехода на страницу пользователя */}
+        <button className="icon-button" onClick={handleUserProfile}>
+          <FaUserEdit size={24} color="white" />
+        </button>
+        {/* Иконка для выхода */}
+        <button className="icon-button" onClick={handleLogout}>
+          <FaSignOutAlt size={24} color="white" />
         </button>
       </div>
     </div>

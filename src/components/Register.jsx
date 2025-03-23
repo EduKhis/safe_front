@@ -22,7 +22,9 @@ const Register = () => {
       });
       navigate('/login');
     } catch (err) {
-      setError('Registration failed');
+      // Проверяем, есть ли ответ от сервера и извлекаем сообщение об ошибке
+      const errorMessage = err.response?.data?.message || 'Registration failed';
+      setError(errorMessage);
     }
   };
 

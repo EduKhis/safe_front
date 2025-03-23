@@ -71,18 +71,18 @@
   gap: 10px;
 }
 
-/* Стили для кнопки выхода */
-.logout-button {
-  padding: 5px 10px;
-  background-color: #1f7f72; /* Основной цвет кнопки */
-  color: white;
+/* Стили для кнопок с иконками */
+.icon-button {
+  background: none;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease; /* Плавный переход */
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease; /* Плавный переход */
 }
 
-.logout-button:hover {
-  background-color: #58978f; /* Цвет при наведении */
+.icon-button:hover {
+  opacity: 0.8; /* Эффект при наведении */
 }

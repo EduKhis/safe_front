@@ -7,6 +7,7 @@ import MainContent from './components/MainContent';
 import RiskDetail from './components/RiskDetail';
 import Login from './components/Login';
 import Register from './components/Register';
+import AuthLayout from './components/AuthLayout'; // Импортируем новый компонент
 import api from './api'; // Импортируем настроенный axios
 import './styles/App.css';
 
@@ -73,44 +74,46 @@ function App() {
 
   return (
     <div className="app">
-      <TopMenu onToggleSidebar={toggleSidebar} />
-      <div className="main-container">
-        <Sidebar
-          onSelect={handleSidebarSelect}
-          collapsed={collapsed}
-          isMobile={isMobile}
-        />
-        <div className={`main-content ${collapsed ? '' : 'shifted'}`}>
-          <Routes>
-            {/* Маршруты для авторизации и регистрации */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+      <Routes>
+        {/* Маршруты для авторизации и регистрации */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
 
-            {/* Защищенные маршруты */}
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <MainContent
-                    selectedSection={selectedSection}
-                    risks={risks}
-                    showRiskForm={showRiskForm}
-                    setShowRiskForm={setShowRiskForm}
-                  />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/risks/:riskId"
-              element={
-                <ProtectedRoute>
-                  <RiskDetail />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </div>
-      </div>
+        {/* Защищенные маршруты */}
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <TopMenu onToggleSidebar={toggleSidebar} />
+              <div className="main-container">
+                <Sidebar
+                  onSelect={handleSidebarSelect}
+                  collapsed={collapsed}
+                  isMobile={isMobile}
+                />
+                <div className={`main-content ${collapsed ? '' : 'shifted'}`}>
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <MainContent
+                          selectedSection={selectedSection}
+                          risks={risks}
+                          showRiskForm={showRiskForm}
+                          setShowRiskForm={setShowRiskForm}
+                        />
+                      }
+                    />
+                    <Route path="/risks/:riskId" element={<RiskDetail />} />
+                  </Routes>
+                </div>
+              </div>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </div>
   );
 }
