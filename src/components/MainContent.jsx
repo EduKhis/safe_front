@@ -5,16 +5,27 @@ import RiskForm from './RiskForm';
 import SectionHeader from './SectionHeader';
 import '../styles/MainContent.css';
 
-const MainContent = ({ selectedSection, risks, showRiskForm, setShowRiskForm }) => {
+const MainContent = ({
+  selectedSection,
+  risks,
+  showRiskForm,
+  setShowRiskForm,
+}) => {
   return (
     <div className="main-content">
       <div className="section-header-wrapper">
-        <SectionHeader selectedSection={selectedSection} onShowRiskForm={() => setShowRiskForm(true)} />
+        <SectionHeader
+          selectedSection={selectedSection}
+          onShowRiskForm={() => setShowRiskForm(true)}
+        />
       </div>
       <div className="main-content-area">
-        {selectedSection === 'risks-ideas' && (
-          showRiskForm ? <RiskForm onClose={() => setShowRiskForm(false)} /> : <Content risks={risks} />
-        )}
+        {selectedSection === 'risks-ideas' &&
+          (showRiskForm ? (
+            <RiskForm onClose={() => setShowRiskForm(false)} />
+          ) : (
+            <Content risks={risks} />
+          ))}
         {selectedSection === 'map' && <MapComponent />}
         {selectedSection === 'tasks' && <div>Раздел "Задачи"</div>}
         {selectedSection === 'my-tasks' && <div>Раздел "Мои задачи"</div>}

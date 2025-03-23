@@ -107,6 +107,39 @@ function App() {
                       }
                     />
                     <Route path="/risks/:riskId" element={<RiskDetail />} />
+                    <Route
+                      path="/risks-ideas"
+                      element={
+                        <MainContent
+                          selectedSection="risks-ideas"
+                          risks={risks}
+                        />
+                      }
+                    />
+                    <Route
+                      path="/tasks"
+                      element={<MainContent selectedSection="tasks" />}
+                    />
+                    <Route
+                      path="/map"
+                      element={<MainContent selectedSection="map" />}
+                    />
+                    <Route
+                      path="/my-tasks"
+                      element={<MainContent selectedSection="my-tasks" />}
+                    />
+                    <Route
+                      path="/profile"
+                      element={<MainContent selectedSection="profile" />}
+                    />
+                    <Route
+                      path="/stats"
+                      element={<MainContent selectedSection="stats" />}
+                    />
+                    <Route
+                      path="/places"
+                      element={<MainContent selectedSection="places" />}
+                    />
                   </Routes>
                 </div>
               </div>
