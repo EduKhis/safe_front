@@ -8,6 +8,7 @@ const API_HOST = process.env.REACT_APP_API_HOST;
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [tg, setTg] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Register = () => {
       await axios.post(`${API_HOST}/api/auth/signup`, {
         username,
         email,
+        tg,
         password,
       });
       navigate('/login');
@@ -49,6 +51,14 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+          />
+        </div>
+        <div className="form-group">
+          <label>Tg-account</label>
+          <input
+            type="text"
+            value={tg}
+            onChange={(e) => setTg(e.target.value)}
           />
         </div>
         <div className="form-group">

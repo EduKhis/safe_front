@@ -15,12 +15,13 @@ const SectionHeader = ({ selectedSection, onShowRiskForm }) => {
       </h2>
 
       {selectedSection === 'risks-ideas' && (
-        <button className="add-button" onClick={onShowRiskForm}>Добавить</button>
+        <button className="add-button" onClick={onShowRiskForm}>
+          Добавить
+        </button>
       )}
-      
+
       {selectedSection === 'map' && (
-        <button className="refresh-button" 
-        >Обновить карту</button>
+        <button className="refresh-button">Обновить</button>
       )}
     </div>
   );

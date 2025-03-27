@@ -1,15 +1,15 @@
 .risk-form {
-  padding: 20px;                         /* Внутренний отступ блока */
-  background-color: #f9f9f9;             /* Цвет фона формы */
-  border-radius: 8px;                    /* Скругление углов */
+  padding: 20px; /* Внутренний отступ блока */
+  background-color: #f9f9f9; /* Цвет фона формы */
+  border-radius: 8px; /* Скругление углов */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень вокруг элемента */
   width: 80%;
 }
-  
+
 .risk-form h2 {
-  margin-bottom: 20px;                   /* Внешний отступ снизу заголовка */
+  margin-bottom: 20px; /* Внешний отступ снизу заголовка */
 }
-  
+
 .form-group {
   margin-bottom: 15px; /* Уменьшенный отступ */
 }
@@ -20,7 +20,7 @@
   font-weight: bold;
 }
 
-.form-group input[type="text"],
+.form-group input[type='text'],
 .form-group select,
 .form-group textarea {
   width: 100%;
@@ -54,11 +54,11 @@
   margin: 0;
 }
 
-.form-group .radio-group input[type="radio"] {
+.form-group .radio-group input[type='radio'] {
   display: none;
 }
 
-.form-group .radio-group input[type="radio"]:checked + label {
+.form-group .radio-group input[type='radio']:checked + label {
   background-color: #407b87; /* Цвет верхней панели */
   color: white;
   border-color: #407b87; /* Цвет верхней панели */
@@ -100,19 +100,19 @@
   font-weight: bold;
   font-size: 12px; /* Уменьшенный размер шрифта */
 }
-  
-button {
-  margin-right: 10px;                    /* Отступ справа кнопки */
-  padding: 8px 16px;                     /* Внутренние отступы */
-  background-color: #407b87;             /* Синий фон кнопки */
-  color: white;                          /* Белый текст на кнопке */
-  border: none;                          /* Отсутствие рамки */
-  border-radius: 4px;                    /* Скруглённые углы кнопки */
-  cursor: pointer;                       /* Курсор в виде руки при наведении */
+
+.button {
+  margin-right: 10px; /* Отступ справа кнопки */
+  padding: 8px 16px; /* Внутренние отступы */
+  background-color: #1f7f72; /* Синий фон кнопки */
+  color: white; /* Белый текст на кнопке */
+  border: none; /* Отсутствие рамки */
+  border-radius: 4px; /* Скруглённые углы кнопки */
+  cursor: pointer; /* Курсор в виде руки при наведении */
 }
-  
-button:hover {
-  background-color: #7dbfcc;             /* Изменение цвета фона при наведении */
+
+.button:hover {
+  background-color: #58978f; /* Изменение цвета фона при наведении */
 }
 
 .circle-group {
@@ -129,7 +129,7 @@ button:hover {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.circle-group input[type="radio"] {
+.circle-group input[type='radio'] {
   display: none;
 }
 
@@ -160,7 +160,7 @@ button:hover {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.circle-group input[type="radio"]:checked + label.circle {
+.circle-group input[type='radio']:checked + label.circle {
   transform: scale(1.2);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
