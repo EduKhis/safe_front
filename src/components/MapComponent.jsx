@@ -1,8 +1,7 @@
 /* global ymaps */
 import React, { useEffect } from 'react';
+import api from '../api'; // Импортируем настроенный axios
 import '../styles/MapComponent.css';
-
-const API_HOST = process.env.REACT_APP_API_HOST; // Вынесенный хост
 
 const MapComponent = () => {
   useEffect(() => {
@@ -16,20 +15,12 @@ const MapComponent = () => {
 
       const geoObjects = [];
       console.log(`Bearer ${localStorage.getItem('token')}`);
-      // Запрос маркеров с сервера
-      fetch(`${API_HOST}/map/points`, {
-        method: 'GET',
-        headers: {
-          'x-access-token': `Bearer ${localStorage.getItem('token')}`, // Добавляем токен в заголовок
-        },
-      })
+
+      api
+        .get(`/api/map/points`)
         .then((response) => {
-          if (!response.ok) {
-            throw new Error('Ошибка при загрузке данных');
-          }
-          return response.json();
-        })
-        .then((data) => {
+          // У axios данные уже в response.data
+          const data = response.data;
           data.forEach((risk) => {
             let placemark;
             console.log(risk);

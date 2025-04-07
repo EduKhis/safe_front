@@ -1,189 +1,284 @@
+/* RiskForm.css */
+.risk-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.risk-form-wrapper {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
 .risk-form {
-  padding: 20px; /* Внутренний отступ блока */
-  background-color: #f9f9f9; /* Цвет фона формы */
-  border-radius: 8px; /* Скругление углов */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень вокруг элемента */
-  width: 80%;
+  padding: 25px;
+  overflow-y: auto;
+  flex-grow: 1;
+  /* Скрываем скроллбар по умолчанию */
+  scrollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none; /* Для IE/Edge */
+}
+
+/* Выравнивание ширины полей */
+.form-group input[type='text'],
+.form-group select,
+.form-group textarea,
+.form-group .location-input input,
+.form-group input[type='file'] {
+  width: 100%;
+  box-sizing: border-box; /* Важно для правильного расчета ширины */
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  background-color: #f8f9fa;
+}
+
+/* Показываем тонкий скроллбар при наведении */
+.risk-form:hover {
+  scrollbar-width: thin; /* Для Firefox */
+  -ms-overflow-style: auto; /* Для IE/Edge */
+}
+
+.risk-form:hover::-webkit-scrollbar {
+  width: 4px; /* Еще тоньше скроллбар */
+}
+
+/* Стили для скроллбара (Chrome/Safari) */
+.risk-form::-webkit-scrollbar {
+  width: 0; /* Скрываем по умолчанию */
+  height: 0;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.risk-form:hover::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.risk-form:hover::-webkit-scrollbar-thumb {
+  background-color: #407b87;
+  border-radius: 2px;
 }
 
 .risk-form h2 {
-  margin-bottom: 20px; /* Внешний отступ снизу заголовка */
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 24px;
 }
 
 .form-group {
-  margin-bottom: 15px; /* Уменьшенный отступ */
+  margin-bottom: 18px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 4px; /* Уменьшенный отступ */
-  font-weight: bold;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 14px;
 }
 
 .form-group input[type='text'],
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 8px; /* Уменьшенный padding */
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  background-color: #f8f9fa;
+}
+
+.form-group input[type='text']:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #407b87;
   outline: none;
-  box-sizing: border-box;
-  font-size: 12px; /* Уменьшенный размер шрифта */
+  background-color: #fff;
 }
 
 .form-group textarea {
-  height: 80px; /* Уменьшенная высота текстовой области */
+  min-height: 100px;
   resize: vertical;
 }
 
-.form-group .radio-group {
+.radio-group {
   display: flex;
-  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #ddd;
 }
 
-.form-group .radio-group label {
+.radio-group label {
   flex: 1;
-  padding: 10px 20px;
+  padding: 10px;
   text-align: center;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f4f4f4;
-  transition: background-color 0.3s, color 0.3s;
-  margin: 0;
+  background-color: #f8f9fa;
+  transition: all 0.2s;
 }
 
-.form-group .radio-group input[type='radio'] {
-  display: none;
-}
-
-.form-group .radio-group input[type='radio']:checked + label {
-  background-color: #407b87; /* Цвет верхней панели */
+.radio-group input[type='radio']:checked + label {
+  background-color: #407b87;
   color: white;
-  border-color: #407b87; /* Цвет верхней панели */
-}
-
-.form-group .radio-group label + label {
-  margin-left: -1px;
-}
-
-.form-group .radio-group label:first-of-type {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.form-group .radio-group label:last-of-type {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-group .required {
-  color: red;
-  font-size: 11px; /* Уменьшенный размер текста */
-  margin-top: 4px; /* Уменьшенный отступ */
-}
-
-.form-group .photo-upload {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px dashed #ccc;
-  padding: 8px; /* Уменьшенный padding */
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-.form-group .photo-upload span {
-  color: #407b87;
-  font-weight: bold;
-  font-size: 12px; /* Уменьшенный размер шрифта */
-}
-
-.button {
-  margin-right: 10px; /* Отступ справа кнопки */
-  padding: 8px 16px; /* Внутренние отступы */
-  background-color: #1f7f72; /* Синий фон кнопки */
-  color: white; /* Белый текст на кнопке */
-  border: none; /* Отсутствие рамки */
-  border-radius: 4px; /* Скруглённые углы кнопки */
-  cursor: pointer; /* Курсор в виде руки при наведении */
-}
-
-.button:hover {
-  background-color: #58978f; /* Изменение цвета фона при наведении */
 }
 
 .circle-group {
   display: flex;
-  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
 }
 
 .circle-group label.circle {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  margin-right: 10px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.circle-group input[type='radio'] {
-  display: none;
-}
-
-.circle-group label.circle.no-selection {
-  background-color: #ccc;
-  position: relative;
-}
-
-.circle-group label.circle.no-selection::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 2px;
-  background-color: #333;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.circle-group label.circle.no-selection::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 2px;
-  background-color: #333;
-  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: transform 0.2s;
 }
 
 .circle-group input[type='radio']:checked + label.circle {
-  transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #407b87;
 }
+
 .location-input {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
 .location-input input {
-  width: 100%;
-  padding-right: 40px; /* Отступ для иконки */
+  padding-right: 40px;
 }
 
 .location-icon {
   position: absolute;
-  right: 10px;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #407b87;
   cursor: pointer;
-  color: #007bff;
-  font-size: 20px;
-  transition: color 0.2s;
+  font-size: 18px;
 }
 
 .location-icon:hover {
-  color: #0056b3;
+  color: #2c5c65;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.submit-button,
+.close-button {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 120px;
+}
+
+.submit-button {
+  background-color: #407b87;
+  color: white;
+  border: none;
+}
+
+.submit-button:hover {
+  background-color: #2c5c65;
+}
+
+.close-button {
+  background-color: #f8f9fa;
+  color: #34495e;
+  border: 1px solid #ddd;
+}
+
+.close-button:hover {
+  background-color: #e9ecef;
+}
+
+/* Стили для ошибок */
+.error-message {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Стили для файлов */
+.file-list {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.file-list li {
+  margin-bottom: 4px;
+  color: #407b87;
+}
+
+/* Стили для кнопок "Риск/Идея" */
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #333; /* Цвет текста по умолчанию */
+}
+
+.toggle-button.active {
+  background-color: #407b87;
+  color: white;
+  border-color: #407b87;
+}
+
+/* Стили для кнопок критичности */
+.importance-button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+
+.importance-button.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #407b87;
 }

@@ -18,17 +18,22 @@ const Profile = () => {
 
   // Получение данных пользователя
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await api.get(`${API_HOST}/api/profile`);
-        setUser(response.data);
-      } catch (err) {
-        setError('Не удалось загрузить данные пользователя');
-        console.error(err);
-      }
-    };
+    api
+      .get(`/api/profile`)
+      .then((response) => setUser(response.data))
+      .catch((error) => console.error(error));
 
-    fetchUserData();
+    // const fetchUserData = async () => {
+    //   try {
+    //     const response = await api.get(`${API_HOST}/api/profile`);
+    //     setUser(response.data);
+    //   } catch (err) {
+    //     setError('Не удалось загрузить данные пользователя');
+    //     console.error(err);
+    //   }
+    // };
+
+    // fetchUserData();
   }, []);
 
   // Обработчик изменения полей формы

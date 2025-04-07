@@ -15,10 +15,7 @@ const MainContent = ({
   return (
     <div className="main-content">
       <div className="section-header-wrapper">
-        <SectionHeader
-          selectedSection={selectedSection}
-          onShowRiskForm={() => setShowRiskForm(true)}
-        />
+        <SectionHeader selectedSection={selectedSection} />
       </div>
       <div className="main-content-area">
         {selectedSection === 'risks-ideas' &&

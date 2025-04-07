@@ -4,7 +4,7 @@
   justify-content: space-between; /* Размещаем элементы по краям */
   align-items: center; /* Выравниваем элементы по вертикали */
   background-color: #1f7f72; /* Темный фон */
-  padding: 10px 20px; /* Внутренние отступы */
+  padding: 0px 20px; /* Внутренние отступы */
   color: white; /* Цвет текста */
   font-family: Arial, sans-serif; /* Шрифт */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для меню */

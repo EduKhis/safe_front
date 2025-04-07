@@ -1,0 +1,25 @@
+/* styles/FloatingAddButton.css */
+.floating-add-button {
+  position: fixed;
+  right: 30px;
+  bottom: 80px; /* Над нижней панелью */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #1f7f72;
+  color: white;
+  border: none;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 101; /* Выше нижней панели */
+}
+
+.floating-add-button:hover {
+  background-color: #1f7f72;
+  transform: scale(1.1);
+}

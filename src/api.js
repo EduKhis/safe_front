@@ -6,6 +6,7 @@ const IDLE_TIMEOUT = 60 * 60 * 1000; // 5 минут в миллисекунда
 // Создаем экземпляр axios
 const api = axios.create({
   baseURL: API_HOST,
+  withCredentials: true, // Важно для работы с Authorization header
 });
 
 let idleTimer;
@@ -24,7 +25,7 @@ const logout = () => {
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
-    config.headers['x-access-token'] = `Bearer ${token}`;
+    config.headers['Authorization'] = `Bearer ${token}`;
     resetIdleTimer(); // Сбрасываем таймер при каждом запросе
   }
   return config;

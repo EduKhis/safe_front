@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  useLocation,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
 
 import TopMenu from './components/TopMenu';
 import Sidebar from './components/Sidebar';
@@ -9,9 +15,10 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AuthLayout from './components/AuthLayout'; // Импортируем новый компонент
 import api from './api'; // Импортируем настроенный axios
+import RiskForm from './components/RiskForm'; // Добавляем импорт RiskForm
+import FloatingAddButton from './components/FloatingAddButton'; // Добавляем импорт FloatingAddButton
+import BottomPanel from './components/BottomPanel';
 import './styles/App.css';
-
-const API_HOST = process.env.REACT_APP_API_HOST;
 
 // Компонент для защиты маршрутов
 const ProtectedRoute = ({ children }) => {
@@ -29,6 +36,7 @@ function App() {
   const [collapsed, setCollapsed] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,7 +49,7 @@ function App() {
   useEffect(() => {
     if (selectedSection === 'risks-ideas') {
       api
-        .get(`${API_HOST}/api/risks`)
+        .get(`/api/risks`)
         .then((response) => setRisks(response.data))
         .catch((error) => console.error(error));
     }
@@ -59,7 +67,7 @@ function App() {
 
     if (selectedItem === 'risks-ideas') {
       api
-        .get(`${API_HOST}/api/risks`)
+        .get(`/api/risks`)
         .then((response) => setRisks(response.data))
         .catch((error) => console.error(error));
     } else {
@@ -117,6 +125,12 @@ function App() {
                       }
                     />
                     <Route
+                      path="/add-risk"
+                      element={
+                        <RiskForm onClose={() => navigate('/risks-ideas')} />
+                      }
+                    />
+                    <Route
                       path="/tasks"
                       element={<MainContent selectedSection="tasks" />}
                     />
@@ -143,6 +157,8 @@ function App() {
                   </Routes>
                 </div>
               </div>
+              <FloatingAddButton />
+              <BottomPanel />
             </ProtectedRoute>
           }
         />

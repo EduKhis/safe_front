@@ -16,7 +16,7 @@ const RiskForm = ({ onClose }) => {
   const [selectedSector, setSelectedSector] = useState('');
   const [selectedSection, setSelectedSection] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [importance, setImportance] = useState('none');
+  const [importance, setImportance] = useState('NONE');
   const [files, setFiles] = useState([]);
   const [description, setDescription] = useState('');
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -140,176 +140,175 @@ const RiskForm = ({ onClose }) => {
   };
 
   return (
-    <div className="risk-form">
-      <h2>Создать запись</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Риск или Идея?</label>
-          <div className="radio-group">
-            <input
-              type="radio"
-              id="risk"
-              name="type"
-              value="risk"
-              checked={type === 'risk'}
-              onChange={() => setType('risk')}
-            />
-            <label htmlFor="risk">Риск</label>
-            <input
-              type="radio"
-              id="idea"
-              name="type"
-              value="idea"
-              checked={type === 'idea'}
-              onChange={() => setType('idea')}
-            />
-            <label htmlFor="idea">Идея</label>
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Описание *</label>
-          <textarea
-            rows="4"
-            required
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Структурное подразделение</label>
-          <select
-            value={selectedDivision}
-            onChange={(e) => setSelectedDivision(e.target.value)}
-            required
-          >
-            <option value="">Выберите подразделение</option>
-            {divisions.map((division) => (
-              <option key={division} value={division}>
-                {division}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Участок</label>
-          <select
-            value={selectedSector}
-            onChange={(e) => setSelectedSector(e.target.value)}
-            required
-          >
-            <option value="">Выберите участок</option>
-            {sectors.map((sector) => (
-              <option key={sector} value={sector}>
-                {sector}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Место</label>
-          <select
-            value={selectedSection}
-            onChange={(e) => setSelectedSection(e.target.value)}
-            required
-          >
-            <option value="">Выберите место</option>
-            {sections.map((section) => (
-              <option key={section} value={section}>
-                {section}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Категория</label>
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            required
-          >
-            <option value="">Выберите категорию</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Критичность риска</label>
-          <div className="circle-group">
-            {['GREEN', 'YELLOW', 'ORANGE', 'RED', 'NONE'].map((level) => (
-              <React.Fragment key={level}>
+    <div className="risk-form-container">
+      <div className="risk-form-wrapper">
+        <div className="risk-form">
+          <h2>Создать запись</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Риск или Идея?</label>
+              <div className="button-group">
+                <button
+                  type="button"
+                  className={`toggle-button ${type === 'risk' ? 'active' : ''}`}
+                  onClick={() => setType('risk')}
+                >
+                  Риск
+                </button>
+                <button
+                  type="button"
+                  className={`toggle-button ${type === 'idea' ? 'active' : ''}`}
+                  onClick={() => setType('idea')}
+                >
+                  Идея
+                </button>
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Описание *</label>
+              <textarea
+                rows="4"
+                required
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Структурное подразделение</label>
+              <select
+                value={selectedDivision}
+                onChange={(e) => setSelectedDivision(e.target.value)}
+                required
+              >
+                <option value="">Выберите подразделение</option>
+                {divisions.map((division) => (
+                  <option key={division} value={division}>
+                    {division}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Участок</label>
+              <select
+                value={selectedSector}
+                onChange={(e) => setSelectedSector(e.target.value)}
+                required
+              >
+                <option value="">Выберите участок</option>
+                {sectors.map((sector) => (
+                  <option key={sector} value={sector}>
+                    {sector}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Место</label>
+              <select
+                value={selectedSection}
+                onChange={(e) => setSelectedSection(e.target.value)}
+                required
+              >
+                <option value="">Выберите место</option>
+                {sections.map((section) => (
+                  <option key={section} value={section}>
+                    {section}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Категория</label>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                required
+              >
+                <option value="">Выберите категорию</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Критичность риска</label>
+              <div className="button-group">
+                {['GREEN', 'YELLOW', 'ORANGE', 'RED', 'NONE'].map((level) => (
+                  <button
+                    key={level}
+                    type="button"
+                    className={`importance-button ${
+                      importance === level ? 'active' : ''
+                    }`}
+                    onClick={() => setImportance(level)}
+                    style={{
+                      backgroundColor:
+                        level === 'GREEN'
+                          ? '#4CAF50'
+                          : level === 'YELLOW'
+                          ? '#FFEB3B'
+                          : level === 'ORANGE'
+                          ? '#FF9800'
+                          : level === 'RED'
+                          ? '#F44336'
+                          : '#9E9E9E',
+                    }}
+                  >
+                    {level === 'NONE' ? '—' : ''}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Координаты</label>
+              <div className="location-input">
                 <input
-                  type="radio"
-                  id={`importance-${level}`}
-                  name="importance"
-                  value={level}
-                  checked={importance === level}
-                  onChange={() => setImportance(level)}
+                  type="text"
+                  value={point}
+                  onChange={handlePointChange}
+                  placeholder="55.709608, 37.544670"
+                  style={{ borderColor: pointError ? 'red' : '#ccc' }}
                 />
-                <label
-                  htmlFor={`importance-${level}`}
-                  className="circle"
-                  style={{
-                    backgroundColor:
-                      level === 'GREEN'
-                        ? 'green'
-                        : level === 'YELLOW'
-                        ? 'yellow'
-                        : level === 'ORANGE'
-                        ? 'orange'
-                        : level === 'RED'
-                        ? 'red'
-                        : 'gray',
-                  }}
-                ></label>
-              </React.Fragment>
-            ))}
-          </div>
+                <FaMapMarkerAlt
+                  className="location-icon"
+                  onClick={handleGetLocation}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Прикрепить файлы</label>
+              <input type="file" multiple onChange={handleFileChange} />
+              {files.length > 0 && (
+                <ul>
+                  {files.map((file, index) => (
+                    <li key={index}>{file.name}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div className="form-group">
+              <label>Отправить анонимно *</label>
+              <input
+                type="checkbox"
+                checked={isAnonymous}
+                onChange={() => setIsAnonymous(!isAnonymous)}
+              />
+            </div>
+            <div className="form-buttons">
+              <button type="submit" className="submit-button">
+                Отправить
+              </button>
+              <button type="button" className="close-button" onClick={onClose}>
+                Закрыть
+              </button>
+            </div>
+          </form>
         </div>
-        <div className="form-group">
-          <label>Координаты</label>
-          <div className="location-input">
-            <input
-              type="text"
-              value={point}
-              onChange={handlePointChange}
-              placeholder="55.709608, 37.544670"
-              style={{ borderColor: pointError ? 'red' : '#ccc' }}
-            />
-            <FaMapMarkerAlt
-              className="location-icon"
-              onClick={handleGetLocation}
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Прикрепить файлы</label>
-          <input type="file" multiple onChange={handleFileChange} />
-          {files.length > 0 && (
-            <ul>
-              {files.map((file, index) => (
-                <li key={index}>{file.name}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="form-group">
-          <label>Отправить анонимно *</label>
-          <input
-            type="checkbox"
-            checked={isAnonymous}
-            onChange={() => setIsAnonymous(!isAnonymous)}
-          />
-        </div>
-        <button className="button" type="submit">
-          Отправить
-        </button>
-        <button className="button" type="button" onClick={onClose}>
-          Закрыть
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
