@@ -8,36 +8,47 @@
   background-color: #1f7f72;
   border-top: 1px solid #dee2e6;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding: 0 20px;
   z-index: 100;
 }
 
 .bottom-panel-content {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 500px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.add-button-bottom {
-  background-color: #007bff;
-  color: white;
+.panel-button {
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
+  color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.2s;
+  padding: 5px 10px;
+  transition: all 0.2s ease;
 }
 
-.add-button-bottom:hover {
-  background-color: #0069d9;
+.panel-button:hover {
+  transform: translateY(-3px);
+}
+
+.panel-icon {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.panel-button-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Убедимся, что контент не перекрывается панелью */
+.main-content {
+  padding-bottom: 60px !important;
 }
