@@ -14,12 +14,6 @@ const SectionHeader = ({ selectedSection, onShowRiskForm }) => {
         {selectedSection === 'map' && 'Карта'}
       </h2>
 
-      {selectedSection === 'risks-ideas' && (
-        <button className="add-button" onClick={onShowRiskForm}>
-          Добавить
-        </button>
-      )}
-
       {selectedSection === 'map' && (
         <button className="refresh-button">Обновить</button>
       )}

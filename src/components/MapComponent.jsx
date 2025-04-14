@@ -119,8 +119,9 @@ const MapComponent = () => {
             <p><strong>${risk.type} ${risk.id}</strong> - ${risk.status}</p>
             <p>${risk.location}</p>
             <p>${risk.dateTimeFix}</p>
-            <a href="/risk/${risk.id}"></a>
-            <button>Перейти</button>
+            <a href="/risks/${risk.id}">
+              <button>Перейти</button>
+            </a>
           </div>
         </div>
       `;

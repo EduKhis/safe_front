@@ -1,9 +1,9 @@
 #myMap {
-    width: 100%;
-    height: 600px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  width: 100%;
+  height: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 /* Стили для изображения в балуне */
 .balloon-content img.balloon-image {
   width: 150px; /* Уменьшите ширину изображения */
@@ -28,14 +28,17 @@
 }
 
 .balloon-info button {
-  background-color: #007bff;
+  padding: 3px 8px; /* Уменьшенный padding */
+  background-color: #1f7f72;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
   cursor: pointer;
+  border-radius: 3px; /* Меньший радиус скругления */
+  font-size: 12px; /* Опционально: уменьшенный размер шрифта */
+  height: 24px; /* Фиксированная высота кнопки */
+  width: 80px; /* Минимальная ширина кнопки */
 }
 
 .balloon-info button:hover {
-  background-color: #0056b3;
-}  
+  background-color: #58978f;
+}
